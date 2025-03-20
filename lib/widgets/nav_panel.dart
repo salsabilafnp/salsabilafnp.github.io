@@ -59,8 +59,8 @@ class _NavPanelState extends State<NavPanel> {
                   children: [
                     _buildMenuItem(
                       Icons.home,
-                      Dictionary.home,
-                      Routes.home,
+                      Dictionary.about,
+                      Routes.about,
                     ),
                     _buildMenuItem(
                       Icons.description,

@@ -3,8 +3,8 @@ import 'package:personal_web/utils/dictionary.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class AboutPage extends StatelessWidget {
+  const AboutPage({super.key});
 
   final String cvUrl =
       "https://docs.google.com/document/d/1dyQWa9_Nz5Yu6yh-blKgfaE8X3MDvB-OBOrG0hihQW4/edit?usp=sharing";
@@ -133,14 +133,14 @@ class HomePage extends StatelessWidget {
                       Row(
                         children: [
                           // CV button
-                          ElevatedButton.icon(
+                          FilledButton.icon(
                             onPressed: () => launchUrl(context, cvUrl),
                             label: Text(Dictionary.downloadCV),
                             icon: Icon(Icons.download_rounded),
                           ),
                           SizedBox(width: 10),
                           // LinkedIn button
-                          OutlinedButton.icon(
+                          TextButton.icon(
                             onPressed: () => launchUrl(context, linkedInUrl),
                             label: Text(Dictionary.linkedIn),
                             icon: Icon(Icons.link),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:personal_web/pages/home_page.dart';
+import 'package:personal_web/pages/about_page.dart';
 import 'package:personal_web/pages/portofolio_page.dart';
 import 'package:personal_web/pages/resume_page.dart';
+import 'package:personal_web/utils/dictionary.dart';
 import 'package:personal_web/utils/routes.dart';
 import 'package:personal_web/utils/theme_provider.dart';
 import 'package:personal_web/widgets/nav_panel.dart';
@@ -16,11 +17,11 @@ class MenuLayout extends StatefulWidget {
 }
 
 class _MenuLayoutState extends State<MenuLayout> {
-  String _currRoute = Routes.home;
+  String _currRoute = Routes.about;
 
   // List pages based on index
   final Map<String, Widget> _pages = {
-    Routes.home: const HomePage(),
+    Routes.about: const AboutPage(),
     Routes.resume: const ResumePage(),
     Routes.portfolio: const PortofolioPage(),
   };
@@ -35,7 +36,7 @@ class _MenuLayoutState extends State<MenuLayout> {
   // load last route from shared preferences
   void _loadLastRoute() async {
     final prefs = await SharedPreferences.getInstance();
-    final lastRoute = prefs.getString('last_route') ?? Routes.home;
+    final lastRoute = prefs.getString('last_route') ?? Routes.about;
     // update current route
     if (mounted) {
       setState(() {
@@ -81,8 +82,9 @@ class _MenuLayoutState extends State<MenuLayout> {
               icon: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
               color: isDarkMode ? Colors.white : Colors.black,
               iconSize: 25,
-              tooltip:
-                  isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode',
+              tooltip: isDarkMode
+                  ? Dictionary.switchLightMode
+                  : Dictionary.switchDarkMode,
               onPressed: () {
                 themeProvider.toggleTheme();
               },
