@@ -24,6 +24,11 @@ class _NavPanelState extends State<NavPanel> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
+    Color backgroundColor = Theme.of(context).scaffoldBackgroundColor;
+    Color shadowColor = Theme.of(context).brightness == Brightness.dark
+        ? Colors.white24
+        : Colors.black26;
+
     return Positioned(
       left: screenWidth * 0.02,
       top: screenHeight * 0.05,
@@ -36,11 +41,11 @@ class _NavPanelState extends State<NavPanel> {
           height: screenHeight * 0.9,
           padding: EdgeInsets.all(screenWidth * 0.015),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: backgroundColor,
             borderRadius: BorderRadius.circular(screenWidth * 0.015),
             boxShadow: [
               BoxShadow(
-                color: Colors.black26,
+                color: shadowColor,
                 blurRadius: screenWidth * 0.01,
                 spreadRadius: screenWidth * 0.005,
                 offset: Offset(3, 3),
@@ -48,39 +53,27 @@ class _NavPanelState extends State<NavPanel> {
             ],
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             mainAxisSize: MainAxisSize.min,
             children: [
               Image.asset('assets/logo.png', height: screenHeight * 0.1),
-              SizedBox(
-                height: screenHeight * 0.3,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    _buildMenuItem(
-                      Icons.home,
-                      Dictionary.about,
-                      Routes.about,
-                    ),
-                    _buildMenuItem(
-                      Icons.description,
-                      Dictionary.resume,
-                      Routes.resume,
-                    ),
-                    _buildMenuItem(
-                      Icons.work,
-                      Dictionary.portfolio,
-                      Routes.portfolio,
-                    ),
-                  ],
-                ),
+              _buildMenuItem(
+                Icons.info_outline,
+                Dictionary.about,
+                Routes.about,
               ),
               _buildMenuItem(
-                Icons.contact_page,
-                Dictionary.contact,
-                Routes.contact,
+                Icons.description,
+                Dictionary.resume,
+                Routes.resume,
+              ),
+              _buildMenuItem(
+                Icons.work,
+                Dictionary.portfolio,
+                Routes.portfolio,
               ),
             ],
+            // ),
           ),
         ),
       ),
@@ -89,19 +82,22 @@ class _NavPanelState extends State<NavPanel> {
 
   Widget _buildMenuItem(IconData icon, String title, String route) {
     bool isActive = widget.currRoute == route;
+    Color activeColor = isActive
+        ? Theme.of(context).iconTheme.color ?? Colors.black
+        : Theme.of(context).textTheme.bodyLarge?.color ?? Colors.black;
 
     return GestureDetector(
       onTap: () => widget.navigateTo(route),
       child: Row(
         children: [
-          Icon(icon, size: 25, color: isActive ? Colors.blue : Colors.black),
+          Icon(icon, size: 25, color: activeColor),
           if (isHovered) ...[
             SizedBox(width: 10),
             Text(
               title,
               style: TextStyle(
                 fontSize: 16,
-                color: isActive ? Colors.blue : Colors.black,
+                color: activeColor,
                 fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
               ),
             ),
