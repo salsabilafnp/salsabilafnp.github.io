@@ -62,35 +62,38 @@ class _MenuLayoutState extends State<MenuLayout> {
     final themeProvider = Provider.of<ThemeProvider>(context);
     final isDarkMode = themeProvider.themeMode == ThemeMode.dark;
 
+    Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Stack(
         children: [
           // main content
           Positioned.fill(
-            child: IndexedStack(
-              index: _pages.keys.toList().indexOf(_currRoute),
-              children: _pages.values.toList(),
+            child: Padding(
+              padding: EdgeInsets.all(screenSize.width * 0.05),
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: screenSize.width * 0.8),
+                child: IndexedStack(
+                  index: _pages.keys.toList().indexOf(_currRoute),
+                  children: _pages.values.toList(),
+                ),
+              ),
             ),
           ),
           // sidebar panel
           NavPanel(currRoute: _currRoute, navigateTo: _navigateTo),
-          // theme switcher
-          Positioned(
-            top: 15,
-            right: 15,
-            child: IconButton(
-              icon: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
-              color: isDarkMode ? Colors.white : Colors.black,
-              iconSize: 25,
-              tooltip: isDarkMode
-                  ? Dictionary.switchLightMode
-                  : Dictionary.switchDarkMode,
-              onPressed: () {
-                themeProvider.toggleTheme();
-              },
-            ),
-          ),
         ],
+      ),
+      // theme switcher
+      floatingActionButton: IconButton(
+        icon: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
+        color: isDarkMode ? Colors.white : Colors.black,
+        iconSize: 25,
+        tooltip:
+            isDarkMode ? Dictionary.switchLightMode : Dictionary.switchDarkMode,
+        onPressed: () {
+          themeProvider.toggleTheme();
+        },
       ),
     );
   }

@@ -38,120 +38,115 @@ class AboutPage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(screenSize.width * 0.1),
-          child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: screenSize.width * 0.8),
-            child: Flex(
-              direction: isMobile ? Axis.vertical : Axis.horizontal,
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: isMobile
-                  ? MainAxisAlignment.center
-                  : MainAxisAlignment.spaceEvenly,
-              children: [
-                // profile picture
-                Flexible(
-                  flex: isMobile ? 1 : 2,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.asset(
-                      'assets/images/ava.png',
-                      width: isMobile ? 150 : 200,
-                      height: isMobile ? 200 : 300,
-                      fit: BoxFit.cover,
+          child: Flex(
+            direction: isMobile ? Axis.vertical : Axis.horizontal,
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: isMobile
+                ? MainAxisAlignment.center
+                : MainAxisAlignment.spaceEvenly,
+            children: [
+              // profile picture
+              Flexible(
+                flex: isMobile ? 1 : 2,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: Image.asset(
+                    'assets/images/ava.png',
+                    width: isMobile ? 150 : 200,
+                    height: isMobile ? 200 : 300,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              SizedBox(width: isMobile ? 0 : 50, height: isMobile ? 25 : 0),
+              // about
+              Expanded(
+                flex: isMobile ? 2 : 3,
+                child: Column(
+                  crossAxisAlignment: isMobile
+                      ? CrossAxisAlignment.center
+                      : CrossAxisAlignment.start,
+                  children: [
+                    // name
+                    Text(
+                      'Hello, I am Sabil',
+                      style:
+                          TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
                     ),
-                  ),
-                ),
-                SizedBox(width: isMobile ? 0 : 50, height: isMobile ? 25 : 0),
-                // about
-                Expanded(
-                  flex: isMobile ? 2 : 3,
-                  child: Column(
-                    crossAxisAlignment: isMobile
-                        ? CrossAxisAlignment.center
-                        : CrossAxisAlignment.start,
-                    children: [
-                      // name
-                      Text(
-                        'Hello, I am Sabil',
-                        style: TextStyle(
-                            fontSize: 36, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 10),
-                      // description
-                      Text(
-                        'an Informatics Engineering graduate who is passionate about developing products start from analysis, design, and implementation.',
-                        style: TextStyle(fontSize: 20),
-                        textAlign: TextAlign.justify,
-                        softWrap: true,
-                      ),
-                      SizedBox(height: 15),
-                      // Based Location
-                      Row(
-                        children: [
-                          Icon(Icons.location_on, color: Colors.red),
-                          Text(
-                            'Bandung, Indonesia',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                    SizedBox(height: 10),
+                    // description
+                    Text(
+                      'an Informatics Engineering graduate who is passionate about developing products start from analysis, design, and implementation.',
+                      style: TextStyle(fontSize: 20),
+                      textAlign: TextAlign.justify,
+                      softWrap: true,
+                    ),
+                    SizedBox(height: 15),
+                    // Based Location
+                    Row(
+                      children: [
+                        Icon(Icons.location_on, color: Colors.red),
+                        Text(
+                          'Bandung, Indonesia',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 15),
+                    // highlight skills
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // analytics
+                        Row(
+                          children: [
+                            Icon(Icons.edit_document),
+                            SizedBox(width: 5),
+                            Flexible(
+                              child: Text('Analysis System, Technical Writer'),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 15),
-                      // highlight skills
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // analytics
-                          Row(
-                            children: [
-                              Icon(Icons.edit_document),
-                              SizedBox(width: 5),
-                              Flexible(
-                                child:
-                                    Text('Analysis System, Technical Writer'),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 5),
-                          // programming
-                          Row(
-                            children: [
-                              Icon(Icons.code_rounded),
-                              SizedBox(width: 5),
-                              Flexible(
-                                child: Text(
-                                    'Mobile Developer (Flutter), Web Developer (Laravel)'),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 15),
-                      // Button
-                      Row(
-                        children: [
-                          // CV button
-                          FilledButton.icon(
-                            onPressed: () => launchUrl(context, cvUrl),
-                            label: Text(Dictionary.downloadCV),
-                            icon: Icon(Icons.download_rounded),
-                          ),
-                          SizedBox(width: 10),
-                          // LinkedIn button
-                          TextButton.icon(
-                            onPressed: () => launchUrl(context, linkedInUrl),
-                            label: Text(Dictionary.linkedIn),
-                            icon: Icon(Icons.link),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
+                          ],
+                        ),
+                        SizedBox(height: 5),
+                        // programming
+                        Row(
+                          children: [
+                            Icon(Icons.code_rounded),
+                            SizedBox(width: 5),
+                            Flexible(
+                              child: Text(
+                                  'Mobile Developer (Flutter), Web Developer (Laravel)'),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 15),
+                    // Button
+                    Row(
+                      children: [
+                        // CV button
+                        FilledButton.icon(
+                          onPressed: () => launchUrl(context, cvUrl),
+                          label: Text(Dictionary.downloadCV),
+                          icon: Icon(Icons.download_rounded),
+                        ),
+                        SizedBox(width: 10),
+                        // LinkedIn button
+                        TextButton.icon(
+                          onPressed: () => launchUrl(context, linkedInUrl),
+                          label: Text(Dictionary.linkedIn),
+                          icon: Icon(Icons.link),
+                        )
+                      ],
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

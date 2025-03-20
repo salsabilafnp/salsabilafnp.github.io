@@ -56,7 +56,7 @@ class _NavPanelState extends State<NavPanel> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.asset('assets/logo.png', height: screenHeight * 0.1),
+              // Image.asset('assets/logo.png', height: screenHeight * 0.1),
               _buildMenuItem(
                 Icons.info_outline,
                 Dictionary.about,
