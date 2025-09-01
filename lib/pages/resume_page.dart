@@ -1,51 +1,68 @@
 import 'package:flutter/material.dart';
-import 'package:personal_web/widgets/experience_card.dart';
+import 'package:personal_web/data/resume_data.dart';
+import 'package:personal_web/utils/dictionary.dart';
 
 class ResumePage extends StatelessWidget {
   const ResumePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
+    return Center(
+      child: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              'Welcome to My Resume Page',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              Dictionary.resume,
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineLarge
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ExperienceCard(
-                  jobTitle: 'Software Engineer',
-                  companyName: 'Google',
-                  location: 'Mountain View, CA',
-                  startDate: '2019',
-                  endDate: 'Present',
-                  jobDescription:
-                      'Developing software for Google products and services.',
-                  achievements:
-                      'Developed a new feature for Google Search that improved the search result by 20%.',
-                  skills: 'Dart, Flutter, Java, Kotlin, Swift',
-                ),
-                SizedBox(width: 20),
-                ExperienceCard(
-                  jobTitle: 'Software Engineer',
-                  companyName: 'Google',
-                  location: 'Mountain View, CA',
-                  startDate: '2019',
-                  endDate: 'Present',
-                  jobDescription:
-                      'Developing software for Google products and services. Developing software for Google products and services. Developing software for Google products and services. Developing software for Google products and services. Developing software for Google products and services.',
-                  achievements:
-                      'Developed a new feature for Google Search that improved the search result by 20%.',
-                  skills: 'Dart, Flutter, Java, Kotlin, Swift',
-                ),
-              ],
-            )
+            const SizedBox(height: 30),
+            // --- BAGIAN PENDIDIKAN ---
+            Text(
+              Dictionary.education,
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge
+                  ?.copyWith(fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            Wrap(
+              spacing: Dictionary.gap15,
+              runSpacing: Dictionary.gap15,
+              children: ResumeData.educationData.map((exp) {
+                return SizedBox(
+                  width: 300,
+                  child: exp,
+                );
+              }).toList(),
+            ),
+
+            const SizedBox(height: 30),
+
+            // --- BAGIAN PENGALAMAN KERJA ---
+            Text(
+              Dictionary.work,
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge
+                  ?.copyWith(fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            Wrap(
+              spacing: Dictionary.gap15,
+              runSpacing: Dictionary.gap15,
+              children: ResumeData.workData.map((exp) {
+                return SizedBox(
+                  width: 300,
+                  child: exp,
+                );
+              }).toList(),
+            ),
+
+            const SizedBox(height: 50),
           ],
         ),
       ),

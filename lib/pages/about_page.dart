@@ -1,32 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:personal_web/utils/dictionary.dart';
+import 'package:personal_web/utils/routes.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
 
-  final String cvUrl =
-      "https://docs.google.com/document/d/1dyQWa9_Nz5Yu6yh-blKgfaE8X3MDvB-OBOrG0hihQW4/edit?usp=sharing";
-  final String linkedInUrl = "https://www.linkedin.com/in/salsabilafnp/";
-
-  void launchUrl(BuildContext context, String url) async {
+  // Helper method untuk membuka URL
+  Future<void> _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrlString(
-        uri.toString(),
-        mode: LaunchMode.externalApplication,
-      );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: url == cvUrl
-              ? Text(Dictionary.failedCV)
-              : Text(Dictionary.failedLinkedIn),
-          backgroundColor: Colors.red,
-          duration: Duration(seconds: 5),
-        ),
-      );
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      debugPrint('Could not launch $url');
     }
   }
 
@@ -69,14 +53,14 @@ class AboutPage extends StatelessWidget {
                   children: [
                     // name
                     Text(
-                      'Hello, I am Sabil',
+                      'Hi, I\'m Salsabila (Sabil) Febrianty NP!',
                       style:
                           TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 10),
                     // description
                     Text(
-                      'an Informatics Engineering graduate who is passionate about developing products start from analysis, design, and implementation.',
+                      'an Informatics Engineering graduate who is passionate about developing products start from analysis, design, and implementation in web and mobile platform. With hands-on experience in full-stack development and project management, I thrive in collaborative environments to deliver innovative digital solutions. Always eager to learn and adapt, I aim to create impactful applications that enhance user experiences. Let\’s build something great together! 🚀',
                       style: TextStyle(fontSize: 20),
                       textAlign: TextAlign.justify,
                       softWrap: true,
@@ -85,17 +69,19 @@ class AboutPage extends StatelessWidget {
                     // Based Location
                     Row(
                       children: [
-                        Icon(Icons.location_on, color: Colors.red),
+                        Icon(Icons.location_on,
+                            color: Theme.of(context).colorScheme.error),
+                        SizedBox(width: 10),
                         Text(
                           'Bandung, Indonesia',
                           style: TextStyle(
                             fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                            // fontWeight: FontWeight.bold,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 15),
+                    SizedBox(height: 10),
                     // highlight skills
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,7 +90,7 @@ class AboutPage extends StatelessWidget {
                         Row(
                           children: [
                             Icon(Icons.edit_document),
-                            SizedBox(width: 5),
+                            SizedBox(width: 10),
                             Flexible(
                               child: Text('Analysis System, Technical Writer'),
                             ),
@@ -115,7 +101,7 @@ class AboutPage extends StatelessWidget {
                         Row(
                           children: [
                             Icon(Icons.code_rounded),
-                            SizedBox(width: 5),
+                            SizedBox(width: 10),
                             Flexible(
                               child: Text(
                                   'Mobile Developer (Flutter), Web Developer (Laravel)'),
@@ -130,16 +116,16 @@ class AboutPage extends StatelessWidget {
                       children: [
                         // CV button
                         FilledButton.icon(
-                          onPressed: () => launchUrl(context, cvUrl),
+                          onPressed: () => _launchURL(Routes.cvUrl),
                           label: Text(Dictionary.downloadCV),
                           icon: Icon(Icons.download_rounded),
                         ),
                         SizedBox(width: 10),
                         // LinkedIn button
                         TextButton.icon(
-                          onPressed: () => launchUrl(context, linkedInUrl),
-                          label: Text(Dictionary.linkedIn),
-                          icon: Icon(Icons.link),
+                          onPressed: () => _launchURL(Routes.portofolioUrl),
+                          label: Text(Dictionary.portfolio),
+                          icon: Icon(Icons.link_rounded),
                         )
                       ],
                     ),

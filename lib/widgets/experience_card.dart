@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_web/utils/dictionary.dart';
 
 class ExperienceCard extends StatelessWidget {
   final String startDate;
@@ -7,10 +8,10 @@ class ExperienceCard extends StatelessWidget {
   final String companyName;
   final String jobDescription;
   final String achievements;
-  final String skills;
+  final List<String> skills;
   final String location;
 
-  ExperienceCard({
+  const ExperienceCard({
     super.key,
     required this.startDate,
     required this.endDate,
@@ -24,56 +25,61 @@ class ExperienceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => _showDetail(context),
-      child: Card(
-        margin: EdgeInsets.all(10),
-        elevation: 3,
+    final theme = Theme.of(context);
+
+    return Card(
+      child: InkWell(
+        borderRadius: BorderRadius.circular(Dictionary.gap15),
+        onTap: () => _showDetail(context),
+        hoverColor: theme.primaryColor.withAlpha(10),
         child: Padding(
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(Dictionary.gap15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // date of experience
               Text(
                 '$startDate - $endDate',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: theme.textTheme.bodySmall,
               ),
-              SizedBox(height: 5),
-              // job title
+              const SizedBox(height: 5),
               Text(
                 jobTitle,
-                style: TextStyle(
-                  fontSize: 16,
+                style: theme.textTheme.bodyLarge?.copyWith(
                   fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.primary,
                 ),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
               ),
-              SizedBox(height: 5),
-              // company name and location
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Icon(
                     Icons.location_on,
-                    color: Colors.red,
-                    size: 20,
+                    size: 16,
+                    color: theme.colorScheme.error,
                   ),
-                  SizedBox(width: 5),
-                  Text(
-                    '$companyName, $location',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.justify,
-                    softWrap: true,
+                  const SizedBox(width: 5),
+                  Expanded(
+                    child: Text(
+                      '$companyName - $location',
+                      style: theme.textTheme.bodySmall,
+                    ),
                   ),
                 ],
               ),
-              SizedBox(height: 5),
-              // skills
-              Text(skills),
+              const SizedBox(height: 12),
+              if (skills.isNotEmpty)
+                Wrap(
+                  spacing: 5.0,
+                  runSpacing: 5.0,
+                  children: skills
+                      .map((skill) => Chip(
+                            label: Text(skill),
+                            labelStyle: const TextStyle(fontSize: 11),
+                            backgroundColor: theme.primaryColor.withAlpha(50),
+                            side: BorderSide.none,
+                          ))
+                      .toList(),
+                ),
             ],
           ),
         ),
