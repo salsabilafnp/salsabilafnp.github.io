@@ -113,9 +113,9 @@ class _MenuLayoutState extends State<MenuLayout> {
           const FloatingPanel(isNavPanel: false),
         ],
       ),
-      floatingActionButton: IconButton.filledTonal(
+      floatingActionButton: IconButton.filled(
         icon: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
-        color: Colors.black,
+        color: Colors.white,
         onPressed: () => themeProvider.toggleTheme(),
       ),
     );

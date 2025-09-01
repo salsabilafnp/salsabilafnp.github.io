@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bullet_list/flutter_bullet_list.dart';
 import 'package:personal_web/utils/dictionary.dart';
 
 class ExperienceCard extends StatelessWidget {
@@ -6,8 +7,7 @@ class ExperienceCard extends StatelessWidget {
   final String endDate;
   final String jobTitle;
   final String companyName;
-  final String jobDescription;
-  final String achievements;
+  final List<ListItemModel> jobDescription;
   final List<String> skills;
   final String location;
 
@@ -18,7 +18,6 @@ class ExperienceCard extends StatelessWidget {
     required this.jobTitle,
     required this.companyName,
     required this.jobDescription,
-    required this.achievements,
     required this.skills,
     required this.location,
   });
@@ -114,7 +113,7 @@ class ExperienceCard extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.location_on,
-                      color: Colors.red,
+                      color: Theme.of(context).colorScheme.error,
                       size: 20,
                     ),
                     SizedBox(width: 5),
@@ -144,24 +143,12 @@ class ExperienceCard extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 5),
-                Text(
-                  jobDescription,
-                  textAlign: TextAlign.justify,
-                ),
-                SizedBox(height: 10),
-                // achievements
-                Text(
-                  'Achievements:',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 5),
-                Text(
-                  achievements,
-                  textAlign: TextAlign.justify,
-                ),
-                SizedBox(height: 10),
+                FlutterBulletList(
+                  data: jobDescription,
+                  bulletColor: Theme.of(context).colorScheme.primary,
+                  bulletSize: 2,
+                  bulletType: BulletType.circle,
+                )
               ],
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_web/utils/dictionary.dart';
 import 'package:personal_web/utils/theme.dart';
 import 'package:personal_web/utils/theme_provider.dart';
 import 'package:personal_web/widgets/menu_layout.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {
           return MaterialApp(
-            title: 'Sabil\'s Personal Web',
+            title: Dictionary.webTitle,
             debugShowCheckedModeBanner: false,
             theme: AppThemes.lightTheme,
             darkTheme: AppThemes.darkTheme,

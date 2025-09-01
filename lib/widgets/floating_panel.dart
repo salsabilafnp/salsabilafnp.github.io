@@ -67,8 +67,8 @@ class FloatingPanel extends StatelessWidget {
     }
 
     return Positioned(
-      left: isNavPanel ? (screenWidth > 1200 ? 30.0 : 10.0) : null,
-      right: !isNavPanel ? (screenWidth > 1200 ? 30.0 : 10.0) : null,
+      left: isNavPanel ? (screenWidth > 1200 ? 20.0 : 10.0) : null,
+      right: !isNavPanel ? (screenWidth > 1200 ? 20.0 : 10.0) : null,
       top: 0,
       bottom: 0,
       child: Center(

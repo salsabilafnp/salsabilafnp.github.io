@@ -1,6 +1,6 @@
 class Dictionary {
   // menu
-  static const String webTitle = 'Sabil\'s Web Portfolio';
+  static const String webTitle = 'Sabil\'s Web Portofolio';
   static const String menu = 'Menu';
   static const String about = 'About Me';
   static const String resume = 'Resume';
