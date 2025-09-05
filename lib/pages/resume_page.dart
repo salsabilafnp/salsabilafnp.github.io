@@ -20,7 +20,7 @@ class ResumePage extends StatelessWidget {
                   ?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 30),
-            // --- BAGIAN PENDIDIKAN ---
+            // Education
             Text(
               Dictionary.education,
               style: Theme.of(context)
@@ -42,7 +42,7 @@ class ResumePage extends StatelessWidget {
 
             const SizedBox(height: 30),
 
-            // --- BAGIAN PENGALAMAN KERJA ---
+            // Work Experience
             Text(
               Dictionary.work,
               style: Theme.of(context)
