@@ -1,25 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bullet_list/flutter_bullet_list.dart';
+import 'package:personal_web/data/model/experience.dart';
 import 'package:personal_web/utils/dictionary.dart';
 
 class ExperienceCard extends StatelessWidget {
-  final String startDate;
-  final String endDate;
-  final String jobTitle;
-  final String companyName;
-  final List<ListItemModel> jobDescription;
-  final List<String> skills;
-  final String location;
+  final Experience experience;
 
   const ExperienceCard({
     super.key,
-    required this.startDate,
-    required this.endDate,
-    required this.jobTitle,
-    required this.companyName,
-    required this.jobDescription,
-    required this.skills,
-    required this.location,
+    required this.experience,
   });
 
   @override
@@ -37,12 +26,12 @@ class ExperienceCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '$startDate - $endDate',
+                '${experience.startDate} - ${experience.endDate}',
                 style: theme.textTheme.bodySmall,
               ),
               const SizedBox(height: 5),
               Text(
-                jobTitle,
+                experience.jobTitle,
                 style: theme.textTheme.bodyLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: theme.colorScheme.primary,
@@ -59,18 +48,18 @@ class ExperienceCard extends StatelessWidget {
                   const SizedBox(width: 5),
                   Expanded(
                     child: Text(
-                      '$companyName - $location',
+                      '${experience.jobTitle} - ${experience.companyName}',
                       style: theme.textTheme.bodySmall,
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 12),
-              if (skills.isNotEmpty)
+              if (experience.skills.isNotEmpty)
                 Wrap(
                   spacing: 5.0,
                   runSpacing: 5.0,
-                  children: skills
+                  children: experience.skills
                       .map((skill) => Chip(
                             label: Text(skill),
                             labelStyle: const TextStyle(fontSize: 11),
@@ -93,7 +82,7 @@ class ExperienceCard extends StatelessWidget {
       builder: (context) {
         return AlertDialog(
           title: Text(
-            '$jobTitle at $companyName',
+            '${experience.jobTitle} at ${experience.companyName}',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           content: SingleChildScrollView(
@@ -102,7 +91,7 @@ class ExperienceCard extends StatelessWidget {
               children: [
                 // date of experience
                 Text(
-                  '$startDate - $endDate',
+                  '${experience.startDate} - ${experience.endDate}',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
@@ -118,7 +107,7 @@ class ExperienceCard extends StatelessWidget {
                     ),
                     SizedBox(width: 5),
                     Text(
-                      '$companyName, $location',
+                      '${ex}, ${experience.location}',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.justify,

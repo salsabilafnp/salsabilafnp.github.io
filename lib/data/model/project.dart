@@ -1,4 +1,4 @@
-// Model tautan proyek
+// Project Link
 class ProjectLink {
   final String label;
   final String url;
@@ -6,15 +6,15 @@ class ProjectLink {
   const ProjectLink({required this.label, required this.url});
 }
 
-// Model logo skill
+// Logo skill
 class Skill {
   final String name;
-  final String assetPath; // Path ke logo skill di folder assets
+  final String assetPath;
 
   const Skill({required this.name, required this.assetPath});
 }
 
-// Model proyek portofolio
+// Project Data
 class ProjectData {
   final String coverAssetPath;
   final String title;

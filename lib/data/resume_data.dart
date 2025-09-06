@@ -1,10 +1,9 @@
 import 'package:flutter_bullet_list/flutter_bullet_list.dart';
-import 'package:personal_web/widgets/experience_card.dart';
 
 class ResumeData {
-  // --- DATA PENGALAMAN KERJA ---
-  static List<ExperienceCard> workData = [
-    ExperienceCard(
+  // Work Experiences
+  static List<Experience> workData = [
+    Experience(
       startDate: 'Maret 2025',
       endDate: 'Sekarang',
       jobTitle: 'Full-Time Technical Writer',
@@ -23,7 +22,7 @@ class ResumeData {
                 'Menyusun dan memelihara dokumentasi proyek, termasuk rencana pengujian dan laporan hasil pengujian.'),
       ],
     ),
-    ExperienceCard(
+    Experience(
       startDate: 'September 2024',
       endDate: 'Sekarang',
       jobTitle: 'Freelance System Analyst',
@@ -42,7 +41,7 @@ class ResumeData {
                 'Menyusun dan memelihara dokumentasi proyek, termasuk rencana pengujian dan laporan hasil pengujian.'),
       ],
     ),
-    ExperienceCard(
+    Experience(
       startDate: 'September 2022',
       endDate: 'Januari 2025',
       jobTitle: 'Asisten Laboratorium',
@@ -66,7 +65,7 @@ class ResumeData {
                 'Menyusun dan memelihara dokumentasi proyek, termasuk rencana pengujian dan laporan hasil pengujian.'),
       ],
     ),
-    ExperienceCard(
+    Experience(
       startDate: 'Agustus 2023',
       endDate: 'Desember 2023',
       jobTitle: 'Intern Mobile Developer',
@@ -87,12 +86,12 @@ class ResumeData {
     ),
   ];
 
-  // --- DATA PENDIDIKAN ---
-  static List<ExperienceCard> educationData = [
-    ExperienceCard(
-      startDate: 'Oktober 2020',
-      endDate: 'Agustus 2024',
-      jobTitle: 'S1 Teknik Informatika',
+  // Education
+  static List<Experience> educationData = [
+    Experience(
+      startDate: 'October 2020',
+      endDate: 'August 2024',
+      jobTitle: 'Bachelor of Informatics Engineering',
       companyName: 'Universitas Pasundan',
       location: 'Bandung, Indonesia',
       skills: [
@@ -115,7 +114,7 @@ class ResumeData {
                 'Menyusun dan memelihara dokumentasi proyek, termasuk rencana pengujian dan laporan hasil pengujian.'),
       ],
     ),
-    ExperienceCard(
+    Experience(
       startDate: 'Februari 2024',
       endDate: 'Juni 2024',
       jobTitle: 'Flutter Mentee',
@@ -134,7 +133,7 @@ class ResumeData {
                 'Menyusun dan memelihara dokumentasi proyek, termasuk rencana pengujian dan laporan hasil pengujian.'),
       ],
     ),
-    ExperienceCard(
+    Experience(
       startDate: 'Februari 2023',
       endDate: 'Juli 2023',
       jobTitle: 'Machine Learning Mentee',

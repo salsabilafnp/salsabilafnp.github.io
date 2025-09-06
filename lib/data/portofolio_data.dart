@@ -1,4 +1,4 @@
-import 'package:personal_web/data/project_data.dart';
+import 'package:personal_web/data/model/project.dart';
 
 class PortfolioData {
   // List skill

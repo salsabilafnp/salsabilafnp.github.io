@@ -8,6 +8,8 @@ class Dictionary {
   static const String work = 'Work Experiences';
   static const String portfolio = 'Portfolio';
   static const String contact = 'Contact';
+  static const String skills = 'Skills';
+  static const String projects = 'Projects';
 
   // main menu
   static const String switchDarkMode = 'Switch to Dark Mode';
@@ -23,4 +25,49 @@ class Dictionary {
 
   // const
   static const double gap15 = 15;
+
+  // skill
+  // hard skills
+  static const String skillJava = 'Java';
+  static const String skillWebDev = 'Web Development';
+  static const String skillHTML = 'HTML';
+  static const String skillCSS = 'CSS';
+  static const String skillBootstrap = 'Bootstrap';
+  static const String skillLaravel = 'Laravel';
+  static const String skillPhp = 'PHP';
+  static const String skillMobileDev = 'Mobile Development';
+  static const String skillFlutter = 'Flutter';
+  static const String skillDart = 'Dart';
+  static const String skillML = 'Machine Learning';
+  static const String skillPy = 'Python';
+  static const String skillTF = 'TensorFlow';
+  static const String skillDb = 'Database';
+  static const String skillSql = 'MySQL';
+  static const String skillUix = 'UI/UX';
+  static const String skillFigma = 'Figma';
+  static const String skillSystAnalysis = 'System Analysis';
+  static const String skillTW = 'Technical Writing';
+  static const String skillAgile = 'Agile/Scrum';
+  static const String skillGit = 'Git/GitHub';
+  static const String skillMsOffice = 'MS Office';
+  static const String skillGWorkspace = 'Google Workspace';
+  // soft skills
+  static const String skillAT = 'Analytical Thinking';
+  static const String skillProblemSolving = 'Problem Solving';
+  static const String skillAdaptability = 'Adaptability';
+  static const String skillLeadership = 'Leadership';
+  static const String skillTeamwork = 'Teamwork';
+  static const String skillTimeMgmt = 'Time Management';
+  static const String skillFastLearner = 'Fast Learner';
+  static const String skillCom = 'Communication';
+  static const String skillPresentation = 'Presentation Skills';
+  static const String skillResearch = 'Research Skills';
+  static const String skillPlanning = 'Planning';
+  static const String skillOrganizational = 'Organizational Skills';
+  static const String skillProjectMgmt = 'Project Management';
+  // languages
+  static const String skillId = 'Bahasa Indonesia';
+  static const String skillEn = 'English';
+  static const String skillNative = 'Native';
+  static const String skillIntermediate = 'Intermediate';
 }

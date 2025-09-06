@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:personal_web/data/project_data.dart';
+import 'package:personal_web/data/model/project.dart';
 import 'package:personal_web/utils/dictionary.dart';
 import 'package:url_launcher/url_launcher.dart';
 
