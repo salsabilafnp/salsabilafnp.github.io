@@ -8,7 +8,6 @@ class PortofolioPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Menggunakan struktur yang sama dengan ResumePage
     return Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),

@@ -11,13 +11,13 @@ class AppThemes {
       primary: Colors.blue,
       secondary: Colors.lightBlue,
       error: Colors.red,
+      shadow: Colors.grey,
     ),
     // card
     cardTheme: CardTheme(
       margin: const EdgeInsets.symmetric(vertical: Dictionary.gap15),
       color: Colors.grey[100],
-      shadowColor: Colors.black12,
-      elevation: 2,
+      elevation: 5,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(Dictionary.gap15),
         side: BorderSide(color: Colors.blueAccent, width: 2),
@@ -56,19 +56,19 @@ class AppThemes {
   // Dark Mode
   static final ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor: Colors.black87,
     // colors
     colorScheme: ColorScheme.dark(
       primary: Colors.teal,
       secondary: Colors.tealAccent,
       error: Colors.red,
+      shadow: Colors.grey,
     ),
     // card
     cardTheme: CardTheme(
       margin: const EdgeInsets.symmetric(vertical: Dictionary.gap15),
       color: Colors.grey[900],
-      shadowColor: Colors.white12,
-      elevation: 2,
+      elevation: 5,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(Dictionary.gap15),
         side: BorderSide(color: Colors.teal, width: 2),
@@ -77,7 +77,6 @@ class AppThemes {
     // text
     textTheme: TextTheme(
       bodyLarge: TextStyle(color: Colors.white),
-      bodyMedium: TextStyle(color: Colors.white70),
     ),
     // icon
     iconTheme: IconThemeData(color: Colors.teal),

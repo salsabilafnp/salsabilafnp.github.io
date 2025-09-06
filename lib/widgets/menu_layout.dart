@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:personal_web/pages/about_page.dart';
 import 'package:personal_web/pages/portofolio_page.dart';
 import 'package:personal_web/pages/resume_page.dart';
@@ -21,7 +22,7 @@ class _MenuLayoutState extends State<MenuLayout> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   String _currRoute = Routes.about;
 
-  // List pages based on index
+  // List pages
   final Map<String, Widget> _pages = {
     Routes.about: const AboutPage(),
     Routes.resume: const ResumePage(),
@@ -35,7 +36,7 @@ class _MenuLayoutState extends State<MenuLayout> {
     _loadLastRoute();
   }
 
-  // load last route from shared preferences
+  // load last route
   void _loadLastRoute() async {
     final prefs = await SharedPreferences.getInstance();
     final lastRoute = prefs.getString('last_route') ?? Routes.about;
@@ -47,7 +48,7 @@ class _MenuLayoutState extends State<MenuLayout> {
     }
   }
 
-  // navigate to a new route/page
+  // navigate to new route
   void _navigateTo(String route) async {
     if (_currRoute != route) {
       final prefs = await SharedPreferences.getInstance();
@@ -59,7 +60,7 @@ class _MenuLayoutState extends State<MenuLayout> {
     }
   }
 
-  // Helper method untuk membuka URL
+  // Helper URL
   Future<void> _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
@@ -83,7 +84,7 @@ class _MenuLayoutState extends State<MenuLayout> {
     );
   }
 
-  // Layout untuk Desktop dan Tablet besar
+  // Layout Desktop & Tablet
   Widget _buildDesktopLayout() {
     final themeProvider = Provider.of<ThemeProvider>(context);
     final isDarkMode = themeProvider.themeMode == ThemeMode.dark;
@@ -103,13 +104,13 @@ class _MenuLayoutState extends State<MenuLayout> {
               children: _pages.values.toList(),
             ),
           ),
-          // Panel Navigasi - Kiri
+          // Left Panel - Nav Menu
           FloatingPanel(
             isNavPanel: true,
             currRoute: _currRoute,
             navigateTo: _navigateTo,
           ),
-          // Panel Sosial Media - Kanan
+          // Right Panel - Sosial Media
           const FloatingPanel(isNavPanel: false),
         ],
       ),
@@ -121,7 +122,7 @@ class _MenuLayoutState extends State<MenuLayout> {
     );
   }
 
-  // Layout untuk Mobile dan Tablet kecil
+  // Layout Mobile & Lite Tablet
   Widget _buildMobileLayout() {
     final themeProvider = Provider.of<ThemeProvider>(context);
     final isDarkMode = themeProvider.themeMode == ThemeMode.dark;
@@ -137,7 +138,7 @@ class _MenuLayoutState extends State<MenuLayout> {
           ),
         ],
       ),
-      // Tombol hamburger menu
+      // Hamburger Menu
       drawer: _buildAppDrawer(),
       body: Center(
         child: Padding(
@@ -151,7 +152,7 @@ class _MenuLayoutState extends State<MenuLayout> {
     );
   }
 
-  // Drawer untuk tampilan Mobile
+  // Drawer - Mobile
   Drawer _buildAppDrawer() {
     return Drawer(
       child: ListView(
@@ -176,34 +177,35 @@ class _MenuLayoutState extends State<MenuLayout> {
               title: Text(Dictionary.menu,
                   style: Theme.of(context).textTheme.titleLarge)),
           _buildDrawerItem(
-            icon: Icons.person_outline,
+            icon: Icon(Icons.person_outline),
             title: Dictionary.about,
             route: Routes.about,
           ),
           _buildDrawerItem(
-              icon: Icons.description_outlined,
+              icon: Icon(Icons.description_outlined),
               title: Dictionary.resume,
               route: Routes.resume),
           _buildDrawerItem(
-              icon: Icons.work_outline,
+              icon: Icon(Icons.work_outline),
               title: Dictionary.portfolio,
               route: Routes.portfolio),
           const Divider(),
           ListTile(
-              title: Text(Dictionary.contact,
-                  style: Theme.of(context).textTheme.titleLarge)),
+            title: Text(Dictionary.contact,
+                style: Theme.of(context).textTheme.titleLarge),
+          ),
           _buildDrawerItem(
-            icon: Icons.link,
+            icon: FaIcon(FontAwesomeIcons.linkedin),
             title: Dictionary.linkedIn,
             url: Routes.linkedinUrl,
           ),
           _buildDrawerItem(
-            icon: Icons.code,
+            icon: FaIcon(FontAwesomeIcons.github),
             title: Dictionary.github,
             url: Routes.githubUrl,
           ),
           _buildDrawerItem(
-            icon: Icons.email_outlined,
+            icon: Icon(Icons.email_outlined),
             title: Dictionary.email,
             url: Routes.emailUrl,
           ),
@@ -212,18 +214,28 @@ class _MenuLayoutState extends State<MenuLayout> {
     );
   }
 
-  ListTile _buildDrawerItem(
-      {required IconData icon,
-      required String title,
-      String? route,
-      String? url}) {
+  ListTile _buildDrawerItem({
+    required Widget icon,
+    required String title,
+    String? route,
+    String? url,
+  }) {
     bool isActive = (route != null && _currRoute == route);
+    Color? iconColor = isActive
+        ? Theme.of(context).iconTheme.color
+        : Theme.of(context).textTheme.bodyMedium?.color;
+
     return ListTile(
-      leading: Icon(icon,
-          color: isActive ? Theme.of(context).colorScheme.primary : null),
-      title: Text(title,
-          style: TextStyle(
-              fontWeight: isActive ? FontWeight.bold : FontWeight.normal)),
+      leading: IconTheme(
+        data: IconThemeData(color: iconColor, size: 24),
+        child: icon,
+      ),
+      title: Text(
+        title,
+        style: TextStyle(
+          fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
+        ),
+      ),
       onTap: () {
         if (route != null) _navigateTo(route);
         if (url != null) _launchURL(url);
