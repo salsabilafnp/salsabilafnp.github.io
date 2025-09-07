@@ -5,7 +5,7 @@ class AppThemes {
   // Light Mode
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
-    scaffoldBackgroundColor: Colors.white38,
+    scaffoldBackgroundColor: Colors.white70,
     // colors
     colorScheme: ColorScheme.light(
       primary: Colors.blue,
