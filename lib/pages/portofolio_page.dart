@@ -8,13 +8,12 @@ class PortofolioPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+    return SingleChildScrollView(
+      child: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Judul Utama Halaman
+            // Page Title
             Text(
               Dictionary.portfolio,
               style: Theme.of(context)
