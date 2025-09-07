@@ -102,8 +102,8 @@ class ExperienceCard extends StatelessWidget {
     }
 
     return Wrap(
-      spacing: 8.0,
-      runSpacing: 6.0,
+      spacing: 5.0,
+      runSpacing: 5.0,
       children: skillWidgets,
     );
   }
@@ -115,7 +115,7 @@ class ExperienceCard extends StatelessWidget {
       builder: (context) {
         return AlertDialog(
           title: Text(
-            '${experience.jobTitle} at ${experience.company}',
+            experience.jobTitle,
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           content: SingleChildScrollView(
@@ -139,14 +139,28 @@ class ExperienceCard extends StatelessWidget {
                       size: 20,
                     ),
                     SizedBox(width: 5),
-                    Text(
-                      '${experience.company}, ${experience.location}',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.justify,
-                      softWrap: true,
+                    Expanded(
+                      child:
+                          Text('${experience.company}, ${experience.location}'),
                     ),
                   ],
+                ),
+                SizedBox(height: 10),
+                // job description
+                Text(
+                  'Description:',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 5),
+                FlutterBulletList(
+                  data: experience.jobDesc
+                      .map((item) => ListItemModel(label: item))
+                      .toList(),
+                  bulletColor: Theme.of(context).colorScheme.primary,
+                  bulletSize: 2,
+                  bulletType: BulletType.circle,
                 ),
                 SizedBox(height: 10),
                 // skills
@@ -166,23 +180,6 @@ class ExperienceCard extends StatelessWidget {
                             ))
                         .toList(),
                   ),
-                SizedBox(height: 10),
-                // job description
-                Text(
-                  'Description:',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 5),
-                FlutterBulletList(
-                  data: experience.jobDesc
-                      .map((item) => ListItemModel(label: item))
-                      .toList(),
-                  bulletColor: Theme.of(context).colorScheme.primary,
-                  bulletSize: 2,
-                  bulletType: BulletType.circle,
-                )
               ],
             ),
           ),

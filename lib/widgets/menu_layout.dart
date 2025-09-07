@@ -72,7 +72,6 @@ class _MenuLayoutState extends State<MenuLayout> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        // Tentukan breakpoint untuk mobile/tablet
         final bool isSmallScreen = constraints.maxWidth < 800;
 
         if (isSmallScreen) {
@@ -91,27 +90,37 @@ class _MenuLayoutState extends State<MenuLayout> {
     final screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: Stack(
-        alignment: Alignment.center,
+      body: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: screenSize.width * 0.05,
-              vertical: 20,
-            ),
-            child: IndexedStack(
-              index: _pages.keys.toList().indexOf(_currRoute),
-              children: _pages.values.toList(),
+          Expanded(
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(
+                    screenSize.width * 0.05,
+                    20,
+                    screenSize.width * 0.05,
+                    0,
+                  ),
+                  child: IndexedStack(
+                    index: _pages.keys.toList().indexOf(_currRoute),
+                    children: _pages.values.toList(),
+                  ),
+                ),
+                // Left Panel - Nav Menu
+                FloatingPanel(
+                  isNavPanel: true,
+                  currRoute: _currRoute,
+                  navigateTo: _navigateTo,
+                ),
+                // Right Panel - Sosial Media
+                const FloatingPanel(isNavPanel: false),
+                // footer
+              ],
             ),
           ),
-          // Left Panel - Nav Menu
-          FloatingPanel(
-            isNavPanel: true,
-            currRoute: _currRoute,
-            navigateTo: _navigateTo,
-          ),
-          // Right Panel - Sosial Media
-          const FloatingPanel(isNavPanel: false),
+          _buildFooter(),
         ],
       ),
       floatingActionButton: IconButton.filled(
@@ -140,14 +149,21 @@ class _MenuLayoutState extends State<MenuLayout> {
       ),
       // Hamburger Menu
       drawer: _buildAppDrawer(),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: IndexedStack(
-            index: _pages.keys.toList().indexOf(_currRoute),
-            children: _pages.values.toList(),
+      body: Column(
+        children: [
+          Expanded(
+            child: Center(
+              child: Padding(
+                padding: EdgeInsets.all(20),
+                child: IndexedStack(
+                  index: _pages.keys.toList().indexOf(_currRoute),
+                  children: _pages.values.toList(),
+                ),
+              ),
+            ),
           ),
-        ),
+          _buildFooter(),
+        ],
       ),
     );
   }
@@ -234,12 +250,30 @@ class _MenuLayoutState extends State<MenuLayout> {
         title,
         style: TextStyle(
           fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
+          color: iconColor,
         ),
       ),
       onTap: () {
         if (route != null) _navigateTo(route);
         if (url != null) _launchURL(url);
       },
+    );
+  }
+
+  // footer
+  Widget _buildFooter() {
+    // Mengambil tahun saat ini secara dinamis
+    final int currentYear = DateTime.now().year;
+
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 10),
+      child: Text(
+        '© $currentYear Salsabila Febrianty. All Rights Reserved.',
+        style: TextStyle(
+          color: Colors.grey.shade600,
+          fontSize: 12,
+        ),
+      ),
     );
   }
 }
