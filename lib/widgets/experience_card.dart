@@ -48,30 +48,63 @@ class ExperienceCard extends StatelessWidget {
                   const SizedBox(width: 5),
                   Expanded(
                     child: Text(
-                      '${experience.jobTitle} - ${experience.companyName}',
+                      '${experience.company} - ${experience.location}',
                       style: theme.textTheme.bodySmall,
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               if (experience.skills.isNotEmpty)
-                Wrap(
-                  spacing: 5.0,
-                  runSpacing: 5.0,
-                  children: experience.skills
-                      .map((skill) => Chip(
-                            label: Text(skill),
-                            labelStyle: const TextStyle(fontSize: 11),
-                            backgroundColor: theme.primaryColor.withAlpha(50),
-                            side: BorderSide.none,
-                          ))
-                      .toList(),
-                ),
+                _buildSkillChips(context, experience.skills),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  /// Limited skill chip
+  Widget _buildSkillChips(BuildContext context, List<String> skills) {
+    final theme = Theme.of(context);
+    const int maxSkillsToShow = 4;
+    List<Widget> skillWidgets;
+
+    if (skills.length > maxSkillsToShow) {
+      skillWidgets = skills.take(maxSkillsToShow).map((skill) {
+        return Chip(
+          label: Text(skill),
+          labelStyle: TextStyle(fontSize: 10),
+          backgroundColor: theme.colorScheme.primary.withAlpha(50),
+          side: BorderSide.none,
+        );
+      }).toList();
+
+      skillWidgets.add(Chip(
+        label: Text('+${skills.length - maxSkillsToShow} more'),
+        labelStyle: TextStyle(
+          fontSize: 10,
+          color: theme.colorScheme.primary,
+          fontWeight: FontWeight.bold,
+        ),
+        backgroundColor: theme.primaryColor.withAlpha(10),
+        side: BorderSide.none,
+      ));
+    } else {
+      skillWidgets = skills.map((skill) {
+        return Chip(
+          label: Text(skill),
+          labelStyle: TextStyle(fontSize: 10),
+          backgroundColor: theme.primaryColor.withAlpha(50),
+          side: BorderSide.none,
+        );
+      }).toList();
+    }
+
+    return Wrap(
+      spacing: 8.0,
+      runSpacing: 6.0,
+      children: skillWidgets,
     );
   }
 
@@ -82,7 +115,7 @@ class ExperienceCard extends StatelessWidget {
       builder: (context) {
         return AlertDialog(
           title: Text(
-            '${experience.jobTitle} at ${experience.companyName}',
+            '${experience.jobTitle} at ${experience.company}',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           content: SingleChildScrollView(
@@ -107,7 +140,7 @@ class ExperienceCard extends StatelessWidget {
                     ),
                     SizedBox(width: 5),
                     Text(
-                      '${ex}, ${experience.location}',
+                      '${experience.company}, ${experience.location}',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.justify,
@@ -117,12 +150,22 @@ class ExperienceCard extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 // skills
-                Text(
-                  'Skills: $skills',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                if (experience.skills.isNotEmpty)
+                  Wrap(
+                    spacing: 5.0,
+                    runSpacing: 5.0,
+                    children: experience.skills
+                        .map((skill) => Chip(
+                              label: Text(skill),
+                              labelStyle: const TextStyle(fontSize: 11),
+                              backgroundColor: Theme.of(context)
+                                  .colorScheme
+                                  .primary
+                                  .withAlpha(50),
+                              side: BorderSide.none,
+                            ))
+                        .toList(),
                   ),
-                ),
                 SizedBox(height: 10),
                 // job description
                 Text(
@@ -133,7 +176,9 @@ class ExperienceCard extends StatelessWidget {
                 ),
                 SizedBox(height: 5),
                 FlutterBulletList(
-                  data: jobDescription,
+                  data: experience.jobDesc
+                      .map((item) => ListItemModel(label: item))
+                      .toList(),
                   bulletColor: Theme.of(context).colorScheme.primary,
                   bulletSize: 2,
                   bulletType: BulletType.circle,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:personal_web/data/resume_data.dart';
 import 'package:personal_web/utils/dictionary.dart';
+import 'package:personal_web/widgets/experience_card.dart';
 
 class ResumePage extends StatelessWidget {
   const ResumePage({super.key});
@@ -32,10 +33,10 @@ class ResumePage extends StatelessWidget {
             Wrap(
               spacing: Dictionary.gap15,
               runSpacing: Dictionary.gap15,
-              children: ResumeData.educationData.map((exp) {
+              children: ResumeData.educationData.map((data) {
                 return SizedBox(
                   width: 300,
-                  child: exp,
+                  child: ExperienceCard(experience: data),
                 );
               }).toList(),
             ),
@@ -54,10 +55,10 @@ class ResumePage extends StatelessWidget {
             Wrap(
               spacing: Dictionary.gap15,
               runSpacing: Dictionary.gap15,
-              children: ResumeData.workData.map((exp) {
+              children: ResumeData.workData.map((data) {
                 return SizedBox(
                   width: 300,
-                  child: exp,
+                  child: ExperienceCard(experience: data),
                 );
               }).toList(),
             ),

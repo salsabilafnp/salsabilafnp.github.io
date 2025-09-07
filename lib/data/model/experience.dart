@@ -2,18 +2,18 @@ class Experience {
   final String startDate;
   final String endDate;
   final String jobTitle;
-  final String companyName;
+  final String company;
   final String location;
   final List<String> skills;
-  final List<String> jobDescription;
+  final List<String> jobDesc;
 
   const Experience({
     required this.startDate,
     required this.endDate,
     required this.jobTitle,
-    required this.companyName,
+    required this.company,
     required this.location,
     required this.skills,
-    required this.jobDescription,
+    required this.jobDesc,
   });
 }

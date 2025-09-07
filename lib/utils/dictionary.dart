@@ -8,7 +8,6 @@ class Dictionary {
   static const String work = 'Work Experiences';
   static const String portfolio = 'Portfolio';
   static const String contact = 'Contact';
-  static const String skills = 'Skills';
   static const String projects = 'Projects';
 
   // main menu
@@ -27,14 +26,18 @@ class Dictionary {
   static const double gap15 = 15;
 
   // skill
+  static const String skillTitle = 'Skills';
+  static const String description = 'Description';
+  static const String projectProgress = 'Project Progress';
+  static const String projectTech = 'Project Technologies';
   // hard skills
-  static const String skillJava = 'Java';
   static const String skillWebDev = 'Web Development';
   static const String skillHTML = 'HTML';
   static const String skillCSS = 'CSS';
   static const String skillBootstrap = 'Bootstrap';
   static const String skillLaravel = 'Laravel';
   static const String skillPhp = 'PHP';
+  static const String skillJava = 'Java';
   static const String skillMobileDev = 'Mobile Development';
   static const String skillFlutter = 'Flutter';
   static const String skillDart = 'Dart';
@@ -46,8 +49,14 @@ class Dictionary {
   static const String skillUix = 'UI/UX';
   static const String skillFigma = 'Figma';
   static const String skillSystAnalysis = 'System Analysis';
+  static const String skillSRS = 'SRS';
+  static const String skillUAT = 'UAT';
   static const String skillTW = 'Technical Writing';
-  static const String skillAgile = 'Agile/Scrum';
+  static const String skillUserGuide = 'User Guide';
+  static const String skillTechDoc = 'Technical Docs';
+  static const String skillProposal = 'Proposal/Report';
+  static const String skillTesting = 'Software Testing';
+  static const String skillAgile = 'Agile';
   static const String skillGit = 'Git/GitHub';
   static const String skillMsOffice = 'MS Office';
   static const String skillGWorkspace = 'Google Workspace';
@@ -61,6 +70,7 @@ class Dictionary {
   static const String skillFastLearner = 'Fast Learner';
   static const String skillCom = 'Communication';
   static const String skillPresentation = 'Presentation Skills';
+  static const String skillMentoring = 'Mentoring';
   static const String skillResearch = 'Research Skills';
   static const String skillPlanning = 'Planning';
   static const String skillOrganizational = 'Organizational Skills';
