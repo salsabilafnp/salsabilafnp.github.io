@@ -14,7 +14,7 @@ class AppThemes {
       shadow: Colors.grey,
     ),
     // card
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       margin: const EdgeInsets.symmetric(vertical: Dictionary.gap15),
       color: Colors.grey[100],
       elevation: 5,
@@ -65,7 +65,7 @@ class AppThemes {
       shadow: Colors.grey,
     ),
     // card
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       margin: const EdgeInsets.symmetric(vertical: Dictionary.gap15),
       color: Colors.grey[900],
       elevation: 5,
