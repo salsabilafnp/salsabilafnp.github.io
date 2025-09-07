@@ -1,0 +1,37 @@
+# Nama workflow yang akan muncul di tab "Actions" GitHub
+name: Deploy Flutter Web to GitHub Pages
+
+# Pemicu: Workflow ini akan berjalan setiap kali ada push ke branch 'main'
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest # Menjalankan proses di server virtual Ubuntu
+    steps:
+      # Langkah 1: Mengunduh kode dari repository Anda
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Langkah 2: Mengatur environment Flutter
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable' # Menggunakan versi Flutter stabil
+
+      # Langkah 3: Menginstall semua dependencies proyek
+      - name: Install dependencies
+        run: flutter pub get
+
+      # Langkah 4: Build aplikasi web Flutter
+      - name: Build web app
+        run: flutter build web --release --base-href /salsabilafnp.github.io/
+
+      # Langkah 5: Deploy hasil build ke branch 'gh-pages'
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Direktori yang akan di-deploy (hasil dari 'flutter build web')
+          publish_dir: ./build/web
