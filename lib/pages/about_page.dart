@@ -53,13 +53,22 @@ class AboutPage extends StatelessWidget {
                   // name
                   Text(
                     'Hi, I\'m Salsabila (Sabil) Febrianty NP!',
-                    style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    'Software Developer (Flutter & Laravel) | System Analyst | Technical Writer',
+                    style: TextStyle(
+                      fontSize: 21,
+                      fontStyle: FontStyle.italic,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
                   ),
                   SizedBox(height: 10),
                   // description
                   Text(
-                    'an Informatics Engineering graduate who is passionate about developing products start from analysis, design, and implementation in web and mobile platform. With hands-on experience in full-stack development and project management, I thrive in collaborative environments to deliver innovative digital solutions. Always eager to learn and adapt, I aim to create impactful applications that enhance user experiences. Let\’s build something great together! 🚀',
-                    style: TextStyle(fontSize: 20),
+                    'an Informatics Engineering graduate who is passionate about developing products start from analysis, design, and implementation in web and mobile platform. With hands-on experience in full-stack development and project management, I thrive in collaborative environments to deliver innovative digital solutions. Always eager to learn and adapt, I aim to create impactful applications that enhance user experiences. Let’s build something great together! 🚀',
+                    style: TextStyle(fontSize: 18, height: 1.5),
                     textAlign: TextAlign.justify,
                     softWrap: true,
                   ),
@@ -76,35 +85,6 @@ class AboutPage extends StatelessWidget {
                           fontSize: 16,
                           // fontWeight: FontWeight.bold,
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  // highlight skills
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // analytics
-                      Row(
-                        children: [
-                          Icon(Icons.edit_document),
-                          SizedBox(width: 10),
-                          Flexible(
-                            child: Text('Analysis System, Technical Writer'),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 5),
-                      // programming
-                      Row(
-                        children: [
-                          Icon(Icons.code_rounded),
-                          SizedBox(width: 10),
-                          Flexible(
-                            child: Text(
-                                'Mobile Developer (Flutter), Web Developer (Laravel)'),
-                          ),
-                        ],
                       ),
                     ],
                   ),

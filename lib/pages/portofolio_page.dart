@@ -25,8 +25,8 @@ class PortofolioPage extends StatelessWidget {
 
             // Project Card
             Wrap(
-              spacing: Dictionary.gap15,
-              runSpacing: Dictionary.gap15,
+              spacing: 15,
+              runSpacing: 15,
               alignment: WrapAlignment.center,
               children: PortfolioData.projects.map((projectData) {
                 return SizedBox(

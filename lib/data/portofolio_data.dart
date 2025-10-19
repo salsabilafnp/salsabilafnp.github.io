@@ -28,15 +28,68 @@ class Skills {
 class PortfolioData {
   static List<ProjectData> projects = [
     ProjectData(
+      coverAssetPath: 'assets/images/bagi-bon.jpeg',
+      title: 'BagiBon App',
+      position: 'Flutter Developer',
+      shortDescription:
+          'A web-based bill-splitting application for a fast and convenient experience on any device without login.',
+      longDescription:
+          'A web-based bill-splitting application designed to provide the fastest and most convenient experience on any device for anyone at any time, without requiring login or app installation.',
+      processExplanation:
+          'Built and launched the application from the ground up using Flutter, focusing on accessibility without user registration. Developed the core bill calculation logic to flexibly split bills. Integrated features to export and share results as formatted text or a downloadable PDF.',
+      skills: [
+        Skills.flutter,
+        Skills.git,
+      ],
+      links: [
+        ProjectLink(
+          label: 'Initial Doc',
+          url:
+              'https://drive.google.com/file/d/1MpeN1pYd8TOB8j2yaJSs6dxkeRxBoIlL/view?usp=drive_link',
+        ),
+        ProjectLink(
+          label: 'Example Splitted Bill',
+          url:
+              'https://drive.google.com/file/d/1oUUFXwIhgtp1xUfsyi4gbTiFrLaFOwzv/view?usp=drive_link',
+        ),
+      ],
+    ),
+    ProjectData(
+      coverAssetPath: 'assets/images/no-image.jpg',
+      title: 'Technical Documentation Generator',
+      position: 'Flutter Developer',
+      shortDescription:
+          'A streamlined tool built to efficiently generate technical document project ideas following stakeholder needs.',
+      longDescription:
+          'A streamlined tool built to efficiently technical document project ideas following stakeholder needs. Engineered the application from scratch using the Flutter framework.',
+      processExplanation:
+          'Developed full CRUD functionality for managing project briefs, including duplication for versioning and storage in a local database. Integrated a PDF generation module, enabling users to export any project brief as a professional, downloadable PDF document.',
+      skills: [
+        Skills.flutter,
+        Skills.git,
+      ],
+      links: [
+        ProjectLink(
+          label: 'Git Repository',
+          url: 'https://github.com/salsabilafnp/tech_docs_generator',
+        ),
+        ProjectLink(
+          label: 'Mobile App',
+          url:
+              'https://drive.google.com/drive/folders/143qhdltKC7g8VkpjTzo_68XyEIO2Dvpz?usp=sharing',
+        ),
+      ],
+    ),
+    ProjectData(
       coverAssetPath: 'assets/images/user-ePresence.png',
       title: 'ePresence App (Thesis Project)',
-      position: 'Full-Stack Developer (Mobile) & UI/UX Designer',
+      position: 'Full-Stack Developer & UI/UX Designer',
       shortDescription:
           'A comprehensive, end-to-end digital attendance system designed for efficient employee management.',
       longDescription:
-          'A comprehensive digital attendance system designed for efficient employee management. It includes a cross-platform mobile app for employees and a backend API to handle all user and attendance data.',
+          'A comprehensive, end-to-end digital attendance system designed for efficient employee management. Built the back-end RESTful API using PHP Laravel & MySQL and developed the cross-platform mobile application with Flutter.',
       processExplanation:
-          'The project involved analyzing user needs, creating detailed SRS and UI/UX designs in Figma, building the back-end RESTful API with PHP Laravel & MySQL, and developing the mobile application with Flutter.',
+          'Designed the complete UI/UX from scratch in Figma, built the back-end RESTful API with PHP Laravel & MySQL, and developed the cross-platform mobile application with Flutter based on a detailed SRS.',
       skills: [
         Skills.flutter,
         Skills.laravel,
@@ -45,14 +98,8 @@ class PortfolioData {
       ],
       links: [
         ProjectLink(
-          label: 'Analysis Docs',
-          url:
-              'https://drive.google.com/file/d/1bFtGOkMnRIc1bNhu__Haoi5Y4i695LMz/view?usp=sharing',
-        ),
-        ProjectLink(
           label: 'UI Design',
-          url:
-              'https://dribbble.com/shots/25092793-ePresence-Mobile-App?new_shot_upload=true&utm_source=Clipboard_Shot&utm_campaign=salsabilafnp&utm_content=ePresence%20Mobile%20App&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=salsabilafnp&utm_content=ePresence%20Mobile%20App&utm_medium=Social_Share',
+          url: 'https://dribbble.com/shots/25092793-ePresence-Mobile-App',
         ),
         ProjectLink(
           label: 'API (GitHub)',
@@ -67,13 +114,13 @@ class PortfolioData {
     ProjectData(
       coverAssetPath: 'assets/images/ecommerce_app.jpg',
       title: 'e-Commerce App (Final Project at MIKTI)',
-      position: 'Project Manager & Flutter Developer',
+      position: 'Project Manager & Mobile Developer',
       shortDescription:
           'A feature-rich mobile e-commerce application developed as a team project for the MIKTI learning program.',
       longDescription:
           'A feature-rich mobile e-commerce application developed as the final project for the MIKTI SIB learning program. The app includes core features for a modern online marketplace.',
       processExplanation:
-          'I led the development team as Project Manager, implementing the Agile (Scrum) methodology to manage sprints and deliverables. I also contributed directly to the development of core application features and UI components using Flutter.',
+          'Led the development team as Project Manager, implementing the Agile (Scrum) methodology to manage sprints and deliverables. I also contributed directly to the development of core application features and UI components using Flutter.',
       skills: [
         Skills.flutter,
         Skills.scrum,
@@ -102,41 +149,14 @@ class PortfolioData {
       links: [
         ProjectLink(
           label: 'UI Design',
-          url:
-              'https://dribbble.com/shots/25063437-Split-Bill-Mobile-App?utm_source=Clipboard_Shot&utm_campaign=salsabilafnp&utm_content=Split%20Bill%20Mobile%20App&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=salsabilafnp&utm_content=Split%20Bill%20Mobile%20App&utm_medium=Social_Share',
-        ),
-      ],
-    ),
-    ProjectData(
-      coverAssetPath: 'assets/images/TOTapp.png',
-      title: 'Truth or Truth Mobile App',
-      position: 'Mobile Developer (Flutter) & UI/UX Designer',
-      shortDescription:
-          'A mobile entertainment application designed as a fun game for social gatherings.',
-      longDescription:
-          'A mobile entertainment application designed as a fun game for social gatherings. The app features core game logic and state management for a seamless user experience.',
-      processExplanation:
-          'I designed the complete user interface and experience in Figma, focusing on an engaging and playful aesthetic, and then developed the cross-platform mobile application from concept to completion using Flutter.',
-      skills: [
-        Skills.flutter,
-        Skills.figma,
-      ],
-      links: [
-        ProjectLink(
-          label: 'UI Design',
-          url:
-              'https://dribbble.com/shots/25063437-Split-Bill-Mobile-App?utm_source=Clipboard_Shot&utm_campaign=salsabilafnp&utm_content=Split%20Bill%20Mobile%20App&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=salsabilafnp&utm_content=Split%20Bill%20Mobile%20App&utm_medium=Social_Share',
-        ),
-        ProjectLink(
-          label: 'Mobile App (GitHub)',
-          url: 'https://github.com/salsabilafnp/truth_or_truth',
+          url: 'https://dribbble.com/shots/25063437-Split-Bill-Mobile-App',
         ),
       ],
     ),
     ProjectData(
       coverAssetPath: 'assets/images/no-image.jpg',
-      title: 'Marketplace Web Application (Practical Class Project)',
-      position: 'Full-Stack Developer (Web)',
+      title: 'Marketplace Web Application',
+      position: 'Web Developer',
       shortDescription:
           'A full-stack web application built with PHP Laravel to serve as an online marketplace platform.',
       longDescription:
@@ -156,29 +176,27 @@ class PortfolioData {
       ],
     ),
     ProjectData(
-      coverAssetPath: 'assets/images/cheval.png',
-      title: 'Cheval - Company Profile Website',
-      position: 'Web Developer',
+      coverAssetPath: 'assets/images/TOTapp.png',
+      title: 'Truth or Truth Mobile App',
+      position: 'Flutter Developer & UI/UX Designer',
       shortDescription:
-          'A modern and responsive company profile website for a conceptual shoe brand, built with Bootstrap.',
+          'A mobile entertainment application designed as a fun game for social gatherings.',
       longDescription:
-          'Cheval is a conceptual company profile website created to establish a strong online presence for a high-quality shoe brand. The site features a compelling landing page, a detailed product gallery, an "About Us" section to tell the brand\'s story, and a contact page.',
+          'An entertainment application designed as a fun game for social gatherings. Designed the complete UI/UX in Figma and developed the cross-platform application using Flutter.',
       processExplanation:
-          'The development process began with creating a responsive and visually appealing layout in Figma. The design was then implemented as a static website using HTML, CSS, and the Bootstrap framework to ensure full responsiveness across all devices, from mobile phones to desktops.',
+          'I designed the complete user interface and experience in Figma, focusing on an engaging and playful aesthetic, and then developed the cross-platform mobile application from concept to completion using Flutter.',
       skills: [
-        Skills.html,
-        Skills.css,
-        Skills.bootstrap,
+        Skills.flutter,
         Skills.figma,
       ],
       links: [
+        // ProjectLink(
+        //   label: 'UI Design',
+        //   url: 'https://dribbble.com/shots/some-dribble-link-here',
+        // ),
         ProjectLink(
-          label: 'Web App (GitHub)',
-          url: 'https://github.com/salsabilafnp/mentoring19',
-        ),
-        ProjectLink(
-          label: 'Web App (Live Demo)',
-          url: 'https://salsabilafnp.github.io/mentoring19/',
+          label: 'Mobile App (GitHub)',
+          url: 'https://github.com/salsabilafnp/truth_or_truth',
         ),
       ],
     ),

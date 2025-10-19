@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:personal_web/utils/dictionary.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppThemes {
   // Light Mode
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
-    scaffoldBackgroundColor: Colors.white70,
+    scaffoldBackgroundColor: Colors.grey[50],
     // colors
     colorScheme: ColorScheme.light(
       primary: Colors.blue,
@@ -15,18 +15,20 @@ class AppThemes {
     ),
     // card
     cardTheme: CardThemeData(
-      margin: const EdgeInsets.symmetric(vertical: Dictionary.gap15),
+      margin: const EdgeInsets.symmetric(vertical: 15),
       color: Colors.grey[100],
       elevation: 5,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(Dictionary.gap15),
+        borderRadius: BorderRadius.circular(15),
         side: BorderSide(color: Colors.blueAccent, width: 2),
       ),
     ),
     // text
-    textTheme: TextTheme(
-      bodyLarge: TextStyle(color: Colors.black),
-      bodyMedium: TextStyle(color: Colors.black87),
+    textTheme: GoogleFonts.poppinsTextTheme(
+      const TextTheme(
+        bodyLarge: TextStyle(color: Colors.black87),
+        bodyMedium: TextStyle(color: Colors.black54),
+      ),
     ),
     // icon
     iconTheme: IconThemeData(color: Colors.blue),
@@ -66,17 +68,20 @@ class AppThemes {
     ),
     // card
     cardTheme: CardThemeData(
-      margin: const EdgeInsets.symmetric(vertical: Dictionary.gap15),
+      margin: const EdgeInsets.symmetric(vertical: 15),
       color: Colors.grey[900],
       elevation: 5,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(Dictionary.gap15),
+        borderRadius: BorderRadius.circular(15),
         side: BorderSide(color: Colors.teal, width: 2),
       ),
     ),
     // text
-    textTheme: TextTheme(
-      bodyLarge: TextStyle(color: Colors.white),
+    textTheme: GoogleFonts.poppinsTextTheme(
+      const TextTheme(
+        bodyLarge: TextStyle(color: Colors.white),
+        bodyMedium: TextStyle(color: Colors.white70),
+      ),
     ),
     // icon
     iconTheme: IconThemeData(color: Colors.teal),

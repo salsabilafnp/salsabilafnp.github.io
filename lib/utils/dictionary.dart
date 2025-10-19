@@ -22,9 +22,6 @@ class Dictionary {
   static const String github = 'GitHub';
   static const String email = 'Email';
 
-  // const
-  static const double gap15 = 15;
-
   // skill
   static const String skillTitle = 'Skills';
   static const String description = 'Description';

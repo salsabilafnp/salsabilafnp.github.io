@@ -63,7 +63,7 @@ class ResumeData {
         'Mentored student groups on final projects, guiding team projects and project execution to meet course objectives.',
       ],
     ),
-    Experience(
+     Experience(
       startDate: 'November 2023',
       endDate: 'December 2023',
       jobTitle: 'Freelance Technical Writer & QA Engineer',
@@ -130,7 +130,7 @@ class ResumeData {
       jobTitle: 'Bachelor of Informatics Engineering',
       company: 'Universitas Pasundan',
       location: 'Bandung, Indonesia',
-      skills: [
+       skills: [
         Dictionary.skillWebDev,
         Dictionary.skillMobileDev,
         Dictionary.skillSystAnalysis,
@@ -173,7 +173,7 @@ class ResumeData {
       jobTitle: 'Machine Learning Mentee - Bangkit 2023',
       company: 'Bangkit Academy (Google, GoTo, and Traveloka)',
       location: 'Remote',
-      skills: [
+       skills: [
         Dictionary.skillML,
         Dictionary.skillProjectMgmt,
         Dictionary.skillAgile,

@@ -21,28 +21,6 @@ class ResumePage extends StatelessWidget {
                   ?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 30),
-            // Education
-            Text(
-              Dictionary.education,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge
-                  ?.copyWith(fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            Wrap(
-              spacing: Dictionary.gap15,
-              runSpacing: Dictionary.gap15,
-              children: ResumeData.educationData.map((data) {
-                return SizedBox(
-                  width: 300,
-                  child: ExperienceCard(experience: data),
-                );
-              }).toList(),
-            ),
-
-            const SizedBox(height: 30),
-
             // Work Experience
             Text(
               Dictionary.work,
@@ -53,8 +31,8 @@ class ResumePage extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Wrap(
-              spacing: Dictionary.gap15,
-              runSpacing: Dictionary.gap15,
+              spacing: 20,
+              runSpacing: 20,
               children: ResumeData.workData.map((data) {
                 return SizedBox(
                   width: 300,
@@ -63,7 +41,29 @@ class ResumePage extends StatelessWidget {
               }).toList(),
             ),
 
-            const SizedBox(height: 50),
+            const SizedBox(height: 30),
+
+            // Education
+            Text(
+              Dictionary.education,
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge
+                  ?.copyWith(fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            Wrap(
+              spacing: 20,
+              runSpacing: 20,
+              children: ResumeData.educationData.map((data) {
+                return SizedBox(
+                  width: 300,
+                  child: ExperienceCard(experience: data),
+                );
+              }).toList(),
+            ),
+
+            // const SizedBox(height: 30),
           ],
         ),
       ),

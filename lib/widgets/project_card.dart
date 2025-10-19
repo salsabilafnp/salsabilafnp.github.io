@@ -23,7 +23,7 @@ class ProjectCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: () => _showProjectDetailDialog(context),
-        borderRadius: BorderRadius.circular(Dictionary.gap15),
+        borderRadius: BorderRadius.circular(15),
         hoverColor: theme.primaryColor.withAlpha(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,7 +33,7 @@ class ProjectCard extends StatelessWidget {
               child: Image.asset(project.coverAssetPath, fit: BoxFit.cover),
             ),
             Padding(
-              padding: EdgeInsets.all(Dictionary.gap15),
+              padding: EdgeInsets.all(15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

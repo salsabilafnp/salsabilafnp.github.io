@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bullet_list/flutter_bullet_list.dart';
 import 'package:personal_web/data/model/experience.dart';
-import 'package:personal_web/utils/dictionary.dart';
 
 class ExperienceCard extends StatelessWidget {
   final Experience experience;
@@ -17,11 +16,11 @@ class ExperienceCard extends StatelessWidget {
 
     return Card(
       child: InkWell(
-        borderRadius: BorderRadius.circular(Dictionary.gap15),
+        borderRadius: BorderRadius.circular(15),
         onTap: () => _showDetail(context),
         hoverColor: theme.primaryColor.withAlpha(10),
         child: Padding(
-          padding: const EdgeInsets.all(Dictionary.gap15),
+          padding: const EdgeInsets.all(15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
