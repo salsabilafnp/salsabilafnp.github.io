@@ -52,6 +52,10 @@ class PortfolioData {
           url:
               'https://drive.google.com/file/d/1oUUFXwIhgtp1xUfsyi4gbTiFrLaFOwzv/view?usp=drive_link',
         ),
+        ProjectLink(
+          label: 'Live App',
+          url: 'https://bagi-bon.vercel.app/',
+        ),
       ],
     ),
     ProjectData(

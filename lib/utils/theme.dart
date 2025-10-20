@@ -26,8 +26,8 @@ class AppThemes {
     // text
     textTheme: GoogleFonts.poppinsTextTheme(
       const TextTheme(
-        bodyLarge: TextStyle(color: Colors.black87),
-        bodyMedium: TextStyle(color: Colors.black54),
+        bodyLarge: TextStyle(color: Colors.black),
+        bodyMedium: TextStyle(color: Colors.black87),
       ),
     ),
     // icon
